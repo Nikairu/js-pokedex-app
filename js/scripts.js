@@ -16,4 +16,15 @@ pokemonList[2] = {
     types: ['fire', 'fighting']
 };
 
+pokemonList.forEach(pokemon => {
+    if(pokemon.height<1){  
+        document.write(pokemon.name+" (height: "+pokemon.height+")<br>")
+    }
+    else{
+        document.write(pokemon.name+" (height: "+pokemon.height+") - Wow that's big!<br>")
+    }
+});
+
+
+
 console.log(pokemonList);
