@@ -18,10 +18,10 @@ pokemonList[2] = {
 
 pokemonList.forEach(pokemon => {
     if(pokemon.height<1){  
-        document.write(pokemon.name+" (height: "+pokemon.height+")<br>")
+        document.write(`${pokemon.name} (height: ${pokemon.height})<br>`)
     }
     else{
-        document.write(pokemon.name+" (height: "+pokemon.height+") - Wow that's big!<br>")
+        document.write(`${pokemon.name} (height: ${pokemon.height}) - Wow that's big!<br>`)
     }
 });
 
