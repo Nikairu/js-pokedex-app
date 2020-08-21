@@ -1,22 +1,43 @@
-var pokemonList = [];
 
-pokemonList[0] = {
-    name: 'Bulbasaur',
-    height: 0.7,
-    types: ['grass', 'poison']
-};
-pokemonList[1] = {
-    name: 'Blastoise',
-    height: 1.6,
-    types: ['water']
-};
-pokemonList[2] = {
-    name: 'Blaziken',
-    height: 1.9,
-    types: ['fire', 'fighting']
-};
+var pokemonRepository = (function () {
 
-pokemonList.forEach(pokemon => {
+    var pokemonList = [
+        {
+            name: 'Bulbasaur',
+            height: 0.7,
+            types: ['grass', 'poison']
+        },
+        {
+            name: 'Blastoise',
+            height: 1.6,
+            types: ['water']
+        },
+        {
+            name: 'Blaziken',
+            height: 1.9,
+            types: ['fire', 'fighting']
+        }
+
+    ];
+
+    function getAll(){
+        return pokemonList;
+    }
+    function add(item){
+        console.log(typeof(item));
+        pokemonList.push(item);
+    }
+
+    return{
+        add: add,
+        getAll: getAll
+    }
+
+
+})();
+
+
+pokemonRepository.getAll().forEach(pokemon => {
     if(pokemon.height<1){  
         document.write(`${pokemon.name} (height: ${pokemon.height})<br>`)
     }
@@ -25,6 +46,11 @@ pokemonList.forEach(pokemon => {
     }
 });
 
+pokemonRepository.add({
+    name: 'Bulbasaur',
+    height: 0.7,
+    types: ['grass', 'poison']
 
+});
 
-console.log(pokemonList);
+//console.log(pokemonList);
