@@ -49,3 +49,6 @@ h1{
 .pokemon-button {
     outline: none;
 }
+.pokemon-button::-moz-focus-inner {
+    border: 0;
+ }
