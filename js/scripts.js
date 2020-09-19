@@ -57,8 +57,23 @@ var pokemonRepository = (function () {
         listItem.appendChild(button);
         pokemonBlock.appendChild(listItem);
 
+        addEventListener(button, pokemon);
+
     }
 
+    function addEventListener(button, pokemon) {
+        button.addEventListener('click', function (event) {
+
+            console.log(`Clicked on ${button.innerText}`);
+            showDetails(pokemon);
+          });
+
+    }
+
+    function showDetails(pokemon) {
+
+
+    }
 
 
     return {
