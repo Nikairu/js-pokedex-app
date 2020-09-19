@@ -1,4 +1,47 @@
-*{
-    color:white;
+body {
     background-color: #525252;
 }
+
+body *{
+    color:white;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+}
+
+.pokemon-list{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width:20%;
+    background-color: #424242;
+}
+
+h1{
+    width: 100%;
+}
+
+.pokemon-button{
+    border-style: unset;
+}
+
+.pokemon-button{
+    width: 100%;
+    background-color: darkslateblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(126, 118, 179);
+    margin-top: 1px;  
+    font-size: 25px;
+}
+
+.list-title{
+    font-size: 30px;
+    padding-left:10%;
+    margin-bottom: 4px;
+}
+
