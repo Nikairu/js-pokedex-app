@@ -1,31 +1,64 @@
-body {
+* {
+    cursor: default;
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
     background-color: #525252;
+    min-height: 100%; 
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.pokemon-info-container{
+	height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+.pokemon-sprite{
+	position: absolute;
 }
 
 body *{
-    color:white;
+	color:white;
 }
 
-body{
+ul {
+    list-style-type: none;
+}
+
+.title-list-container{ 
+    background-color: #474747;
     display: flex;
-    flex-direction: row;
+	flex-direction: column;
+	padding-right: 2px;
+	min-width: 200px;
 }
 
-.pokemon-list{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width:18%;
-    background-color: #424242;
+.list-container{/* scroll-container equivalent */
+    height: 100%;
+    width: 100%;
+    position: relative;
+	overflow: auto;
+	overflow-x: hidden;
 }
 
-h1{
+.list-container::-webkit-scrollbar {
+	display: none;
+}
+
+.pokemon-list{/* list equivalent */
+    position: absolute;
+    height: 100%;
     width: 100%;
 }
 
-.pokemon-button{
-    border-style: unset;
-}
 
 .pokemon-button{
     width: 100%;
@@ -37,18 +70,38 @@ h1{
     border-color: rgb(126, 118, 179);
     margin-top: 1px;  
     font-size: 25px;
-}
-
-.list-title{
-    font-size: 30px;
-    padding-left:10%;
-    margin-bottom: 4px;
-    margin-top: 5px;
-}
-
-.pokemon-button {
+    border-radius: 5px;
     outline: none;
 }
+
 .pokemon-button::-moz-focus-inner {
     border: 0;
- }
+}
+
+.pokemon-sprite{
+	min-height: auto;
+	min-width: 500px;
+}
+
+.loading-message{
+	width: 40px;
+	margin:calc(50vh - 50px) auto;
+	border: 5px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+	  
+/* Safari */
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
