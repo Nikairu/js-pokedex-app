@@ -1,9 +1,9 @@
 
-var pokemonRepository = (function () {
+let pokemonRepository = (function () {
 
-    var pokemonList = [];
+    let pokemonList = [];
 
-    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=100000000000000';
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=100000000000000';
 
     function loadList() {
 		showLoadingMessage();
@@ -13,7 +13,7 @@ var pokemonRepository = (function () {
         }).then(function (json){
             json.results.forEach(function (item) {
 
-                var pokemon = {
+                let pokemon = {
                     name: item.name.charAt(0).toUpperCase() + item.name.slice(1),
                     detailsUrl: item.url,
                     types: '',
@@ -142,7 +142,7 @@ var pokemonRepository = (function () {
 pokemonRepository.loadList().then(function() {
     console.log("Obtained data");
 
-    var PokemonList = pokemonRepository.getAll()
+    let PokemonList = pokemonRepository.getAll()
     
     console.log("Got All");
 
@@ -166,3 +166,41 @@ searchResult.forEach(pokemon => {
 searchResult.forEach(pokemon => {
     //document.write(`Found ${pokemon.name} by minumum height and this is his height: ${pokemon.height}<br>`);
 }); */
+
+
+
+
+
+
+
+
+function loadList() {
+	showLoadingMessage();
+
+	return fetch(apiUrl).then(function (promiseResponse){
+		return promiseResponse.json();
+	}).then(function (json){
+		json.results.forEach(function (item) {
+
+			let pokemon = {
+				name: item.name.charAt(0).toUpperCase() + item.name.slice(1),
+				detailsUrl: item.url,
+				types: '',
+				height: ''
+			};
+
+			fetch(item.url).then(function (response){
+				return response.json();
+			}).then(function (json){
+				pokemon.imageUrl = json.sprites.front_default;
+				pokemon.height = json.height;
+			});
+			add(pokemon);
+
+			})
+		hideLoadingMessage();
+	}).catch(function (){
+	   //Error 
+	   hideLoadingMessage();
+	})
+}
