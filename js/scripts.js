@@ -219,7 +219,6 @@ pokemonRepository.loadList().then(function () {
 
 /* let searchResult = pokemonRepository.filterByName('Blaziken');
 searchResult.forEach(pokemon => {
-
     //document.write(`Found ${pokemon.name} by name and this is his types: ${pokemon.types.join(", ")}<br>`);
 }); */
 
